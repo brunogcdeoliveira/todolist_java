@@ -46,7 +46,6 @@ public class FilterTaskAuth extends OncePerRequestFilter {
             if (user == null) {
                 response.sendError(401);
             } else {
-                System.out.println("Usuário encontrado");
                 // Validar senha
                 var passwordVerify = BCrypt.verifyer().verify(password.toCharArray(), user.getPassword());
                 if (passwordVerify.verified){
